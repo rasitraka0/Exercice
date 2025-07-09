@@ -140,18 +140,34 @@ console.log("Personnes avec un age pair :", personnesAgePair);
 
 //
 
-for (let i = 0; i < persons.length - 1; i++) {
-  for (let j = i + 1; j < persons.length; j++) {
-    if (persons[i].name > persons[j].name) {
-      let temp = persons[i];
-      persons[i] = persons[j];
-      persons[j] = temp;
+let personsByName = persons.slice();
+let personsByAge = persons.slice();
+
+for (let i = 0; i < personsByName.length - 1; i++) {
+  for (let j = i + 1; j < personsByName.length; j++) {
+    if (personsByName[i].name > personsByName[j].name) {
+      let temp = personsByName[i];
+      personsByName[i] = personsByName[j];
+      personsByName[j] = temp;
     }
   }
 }
 
-console.log(persons);
-// Tri par âge
+for (let i = 0; i < personsByAge.length - 1; i++) {
+  for (let j = i + 1; j < personsByAge.length; j++) {
+    if (personsByAge[i].age > personsByAge[j].age) {
+      let temp = personsByAge[i];
+      personsByAge[i] = personsByAge[j];
+      personsByAge[j] = temp;
+    }
+  }
+}
+
+console.log("Tri par name:");
+console.log(personsByName);
+
+console.log("Tri par age:");
+console.log(personsByAge);
 
 // filtrage
 let personnesAvecO = [];
